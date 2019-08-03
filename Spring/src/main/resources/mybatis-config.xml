@@ -12,5 +12,7 @@
 
 
 
-<typeAliases></typeAliases>
+<typeAliases><!-- 수정한것  -->
+	<package name="com.studio7707"/>
+</typeAliases>
 </configuration>
