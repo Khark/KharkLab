@@ -12,7 +12,7 @@ public class main {
 		}
 		
 		System.out.println( total );
-
+		// test from studio 7707
 	}
 
 	private void compare() {
