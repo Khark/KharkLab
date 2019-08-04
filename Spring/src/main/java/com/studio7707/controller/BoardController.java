@@ -1,0 +1,80 @@
+package com.studio7707.controller;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.studio7707.VO.BoardVO;
+import com.studio7707.service.BoardService;
+
+@Controller
+@RequestMapping("/board/*")
+public class BoardController {
+	
+	@Inject
+	BoardService boardService;
+	/*
+	@RequestMapping(value = "/", method =RequestMethod.GET)
+	public String home() throws Exception{
+		
+		return "list";
+		
+	}
+*/	
+	
+	@RequestMapping(value = "list", method =RequestMethod.GET)
+	public ModelAndView list() throws Exception{
+		List<BoardVO> list = boardService.listAll();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/list");
+		mav.addObject("list", list);
+		return mav;
+		
+	}
+	
+	
+	@RequestMapping(value = "write", method = RequestMethod.GET)
+	public String write() {
+		return "board/write";
+	}
+	
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
+	public String insert(@ModelAttribute BoardVO vo) throws Exception{
+		boardService.create(vo);
+		return "redirect:list.do";
+	}
+	
+	@RequestMapping(value = "view", method = RequestMethod.GET)
+	public ModelAndView view (@RequestParam int bno, HttpSession session) throws Exception{
+		//boardService.increaseViewcnt(bno, session);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/view");
+		mav.addObject("dto", boardService.read(bno));
+		System.out.println("dto"+ boardService.read(bno));
+		return mav;
+	}
+	
+	/*
+	@RequestMapping
+	public String update (@ModelAttribute BoardVO vo)throws Exception{
+		boardService.update(vo);
+		return "redirect:list.do";
+	}
+	*/
+	public String delete (@RequestParam int bno) throws Exception{
+		boardService.delete(bno);
+		return "redirect:list";
+	}
+	
+	
+	
+
+}
