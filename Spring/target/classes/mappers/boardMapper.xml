@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="com.studio7707.mapper.LoginMapper"> -->
 <mapper namespace="com.studio7707.mapper.BoardMapper">
-	<select id="listAll" resultType ="com.studio7707.VO.BoardVO">
+	<select id="listAll" resultType ="com.studio7707.DTO.BoardVO">
 		SELECT *
 		FROM SPRING_BOARD
 		ORDER BY bno desc
@@ -14,30 +13,39 @@
 		(bno, title, content, writer )
 		VALUES (
 		(SELECT NVL(MAX(bno) + 1 , 1) FROM SPRING_BOARD ),
-		<!-- sqeuence로 대채할 것 -->
+		<!-- NVL을 이용한 AUTO INCREASE 구현 -->
 		#{title}, #{content}, #{writer}
 		)
 
 	</insert>
+	<!-- SEQUENCE를 이용한 AUTO INCREASE -->
+	<!-- 
+	<insert id = "insert">
+	<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+			select BNO_SEQ.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO SPRING_BOARD (bno, title, content, writer) VALUES
+		(#{bno}, #{title}, #{content}, #{writer})
+	 -->
+	
 
 	<!-- <select id="view" resultType ="com.studio7707.domain.BoardVO"> -->
-	<select id="view" resultType ="com.studio7707.VO.BoardVO">
+	<select id="view" resultType ="com.studio7707.DTO.BoardVO">
 		SELECT * FROM SPRING_BOARD WHERE bno = #{bno}
 	</select>
 
-	<update id="increaseViewcnt">
+	<update id="increaseViewcnt" >
 		UPDATE SPRING_BOARD SET viewcnt = viewcnt + 1
 		WHERE
 		bno = #{bno}
 	</update>
-<!-- 
-	<update id="updateArticle">
+
+	<update id="updateArticle" >
 		UPDATE SPRING_BOARD SET title = #{title},
-		content =
-		#{content}, writer = #{writer}
+		content = #{content}, writer = #{writer}
 		WHERE bno = #{bno}
 	</update>
- -->
+ 
 	<delete id="deleteArticle">
 		DELETE FROM SPRING_BOARD
 		WHERE bno = #{bno}

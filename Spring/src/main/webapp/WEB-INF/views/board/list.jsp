@@ -8,16 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="../include/header.jsp"%>
 
 
-<script type="text/javascript" src="<c:url value='/js/jquery.3.4.1.min.js'/>"></script>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script>
 	$(document).ready(function() {
 		$("#btnWrite").click(function() {
-			alert("제이쿼리되나..");
 			location.href = "${path}/board/write.do";
 		});
 

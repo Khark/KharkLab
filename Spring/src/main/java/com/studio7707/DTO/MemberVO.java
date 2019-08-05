@@ -1,4 +1,4 @@
-package com.studio7707.VO;
+package com.studio7707.DTO;
 
 import java.sql.Date;
 

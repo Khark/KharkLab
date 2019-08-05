@@ -8,7 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.studio7707.VO.BoardVO;
+import com.studio7707.DTO.BoardVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -27,12 +27,13 @@ public class BoardDAOImpl implements BoardDAO {
 		System.out.println(namespace+".view"+ bno);
 		return SqlSession.selectOne(namespace+".view", bno);
 	}
-/*
+
 	@Override
 	public void update(BoardVO vo) throws Exception {
-		SqlSession.update("board.updateArticle, vo");
+		System.out.println("BoardDAOImpl:"+namespace+".updateArticle, vo");
+		SqlSession.update(namespace+".updateArticle", vo);
 	}
-*/
+
 	@Override
 	public void delete(int bno) throws Exception {
 		SqlSession.delete(namespace+".deleteArticle", bno);

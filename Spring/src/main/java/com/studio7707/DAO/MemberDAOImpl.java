@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.studio7707.VO.MemberVO;
+import com.studio7707.DTO.MemberVO;
 
 
 @Repository

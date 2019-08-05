@@ -10,29 +10,44 @@
 
 <!-- <script type="text/javascript" src="<c:url value='/js/jquery.3.4.1.min.js'/>"></script>
  -->
-<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
-	<script>
-		$(document).ready(function() {
-			$("#btnSave").click(function() {				
+<script>
+	$(document).ready(function() {
 
-				var title = $("#title").val();
+		$("#btnSave").click(function() {
 
-				if (title == "") {
-					alret("제목을 입력하세요");
-				}
-				document.write.submit();
-			});
+			var title = $("#title").val();
+			var content = $("#content").val();
+			var writer = $("#writer").val();
+			
+			
+			if (title == "") {
+				alert("제목을 입력하세요");
+				document.write.title.focus();
+				return;
+			}
+			
+			if (writer == ""){
+				alert("작성자를 입력하세요")
+				document.write.writer.focus();
+				return;
+			}
+			if (content == ""){
+				alert("내용을 입력하세요")
+				document.write.content.focus();
+				return;
+			}
+			
+			
+			document.write.submit();
 		});
-	</script>
+	});
+</script>
 
 <title>Insert title here</title>
 </head>
 <body>
- 
-
 
 	<h2>게시글 작성</h2>
 	<form name="write" method="post" action="${path}/board/insert.do">
@@ -44,7 +59,8 @@
 		</div>
 		<div>
 			내용
-			<textarea name="content" id="content" rows="4" cols="80"placeholder="내용을 입력하세요"></textarea>
+			<textarea name="content" id="content" rows="4" cols="80"
+				placeholder="내용을 입력하세요"></textarea>
 		</div>
 		<div style="width: 650px; text-align: center;">
 			<button type="button" id="btnSave">작성</button>

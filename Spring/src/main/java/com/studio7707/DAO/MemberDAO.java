@@ -2,7 +2,7 @@ package com.studio7707.DAO;
 
 import javax.servlet.http.HttpSession;
 
-import com.studio7707.VO.MemberVO;
+import com.studio7707.DTO.MemberVO;
 
 public interface MemberDAO {
 

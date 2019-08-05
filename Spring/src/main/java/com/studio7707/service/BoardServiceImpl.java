@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import com.studio7707.DAO.BoardDAO;
-import com.studio7707.VO.BoardVO;
+import com.studio7707.DTO.BoardVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -40,13 +40,13 @@ public class BoardServiceImpl implements BoardService {
 		System.out.println("AA:"+boardDao.read(bno));
 		return boardDao.read(bno);
 	}
-/*
+
 	@Override
 	public void update(BoardVO vo) throws Exception {
-		
+		System.out.println("BoardServiceImpl"+vo);
 		boardDao.update(vo);
 	}
-*/
+
 	@Override
 	public void delete(int bno) throws Exception {
 		
