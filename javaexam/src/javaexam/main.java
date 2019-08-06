@@ -1,19 +1,23 @@
 package javaexam;
 public class main {
 
-	public static void main(String[] argv) {
-		//new main().compare();
-		int total = 0;
-		for( int i=1; i<=5; i++ ) {
-			for( int j=1; j<=i; i++ ) { 
-				total ++;
-				System.out.println( total );
-			}
+	public static void main(String[] args) {
+		int x = 2;
+		int y = 5;
+		char c = 'A'; // 'A' 65 의 문자코드는
+		System.out.println(1 + x << 33); //
+		System.out.println(y >= 5 || x < 0 && x > 2); // true
+		System.out.println(y += 10 - x++); //13
+		System.out.println(x+=2); //5
+		System.out.println( !('A' <= c && c <='Z') );
+		System.out.println('C'-c);
+		System.out.println('5'-'0');
+		System.out.println(c+1);
+		System.out.println(++c);
+		System.out.println(c++);
+		System.out.println(c);
 		}
-		
-		System.out.println( total );
-		// test from studio 7707
-	}
+	
 
 	private void compare() {
 		User a = new User("J", "Lee");
