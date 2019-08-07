@@ -47,7 +47,6 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void increaseViewcnt(int bno) throws Exception {
-		System.out.println("aaaaaa");
 
 		SqlSession.update(namespace+".increaseViewcnt");
 	}

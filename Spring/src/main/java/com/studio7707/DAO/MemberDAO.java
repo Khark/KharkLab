@@ -1,15 +1,21 @@
 package com.studio7707.DAO;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import com.studio7707.DTO.MemberVO;
 
 public interface MemberDAO {
 
-	public boolean loginCheck(MemberVO vo);
+	public List<MemberVO> memberList() throws Exception;
 	
-	public MemberVO viewMember(MemberVO vo);
+	public void joinMember(MemberVO vo) throws Exception;
 	
-	public void logout(HttpSession session);
+	public MemberVO viewMember() throws Exception;
+	
+	public void deleteMember(String userId) throws Exception;
+	
+	public void updateMember(MemberVO vo) throws Exception;
 	
 }

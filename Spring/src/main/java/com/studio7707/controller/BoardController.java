@@ -64,7 +64,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
-		// boardService.increaseViewcnt(bno, session);
+		//boardService.increaseViewcnt(bno, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/view");
 		mav.addObject("dto", boardService.read(bno));

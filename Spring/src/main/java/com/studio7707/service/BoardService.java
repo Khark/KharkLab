@@ -17,6 +17,7 @@ public interface BoardService {
 		public void delete (int bno) throws Exception;
 		
 		public List<BoardVO> listAll() throws Exception;
+
 		
-		//public void increaseViewcnt(int bno, HttpSession session) throws Exception;
+		
 }

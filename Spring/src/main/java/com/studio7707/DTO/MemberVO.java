@@ -5,7 +5,7 @@ import java.sql.Date;
 public class MemberVO {
 
 	private String userId;
-	private String userPw;
+	private String userPW;
 	private String userName;
 	private String userEmail;
 	private Date   userRegdate;
@@ -17,10 +17,10 @@ public class MemberVO {
 		this.userId = userId;
 	}
 	public String getUserPw() {
-		return userPw;
+		return userPW;
 	}
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	public void setUserPw(String userPW) {
+		this.userPW = userPW;
 	}
 	public String getUserName() {
 		return userName;
@@ -48,7 +48,7 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userEmail="
+		return "MemberVO [userId=" + userId + ", userPw=" + userPW + ", userName=" + userName + ", userEmail="
 				+ userEmail + ", userRegdate=" + userRegdate + ", userUpdateday=" + userUpdateday + "]";
 	}
 	

@@ -21,7 +21,7 @@
 			var bno = $("#bno").val();
 
 			if (confirm("수정하시겠습니까?")) {
-				document.view.action = "${path}/board/modify?bno="+bno
+				document.view.action = "${path}/board/modify?bno=" + bno
 				document.view.submit();
 			}
 		});
@@ -51,13 +51,17 @@
 
 		<div></div>
 
-		<dtv> 조회수 <!--  {VO.viewcnt}  viewcnt 미구현--> </dtv>
+		<div>
+			조회수 <input name="title" readonly="readonly" type="text"
+				value="${dto.viewcnt}">
+
+		</div>
 		<div>
 			내용
 			<textarea name="content" id="content" row="4" cols="80">${dto.content}</textarea>
 		</div>
 		<div style="text-align: center; width: 650px;">
-			<input type="hidden" name="bno" id = "bno" value="${dto.bno}">
+			<input type="hidden" name="bno" id="bno" value="${dto.bno}">
 			<button type="button" id="btnUpdate">수정</button>
 			<button type="button" id="btnDelete">삭제</button>
 		</div>

@@ -19,19 +19,20 @@
 		});
 
 	});
-		
 </script>
 
 
 </head>
 <body>
-	<button type = "button" id="btnWrite">글쓰기</button>
+
+	<c:set var="now" value="<%=new java.util.Date()%>" />
+	<button type="button" id="btnWrite">글쓰기</button>
 	<table border="1" width="600px">
-		<tr style ="text-align : center">
+		<tr style="text-align: center">
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>조회수</th>
+			<!--  <th>조회수</th>-->
 			<th>작성일자</th>
 		</tr>
 		<c:forEach var="row" items="${list}">
@@ -39,9 +40,10 @@
 				<td>${row.bno}</td>
 				<td><a href="${path}/board/view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
-				<td>${row.viewcnt}</td>
-				<td><fmt:formatDate value="${row.regdate}"pattern="yyyy-MM-dd HH:mm:ss" /></td>
-
+				<!-- <td>${row.viewcnt}</td> -->
+				<td>${row.regdate}</td>
+				<!-- <td><fmt:formatDate value="${row.regdate}"/></td>
+ 				-->
 			</tr>
 		</c:forEach>
 	</table>
