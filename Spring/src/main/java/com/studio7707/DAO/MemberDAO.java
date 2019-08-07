@@ -1,8 +1,7 @@
 package com.studio7707.DAO;
 
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import com.studio7707.DTO.MemberVO;
 
@@ -18,4 +17,5 @@ public interface MemberDAO {
 	
 	public void updateMember(MemberVO vo) throws Exception;
 	
+	public MemberVO loginMember(MemberVO vo) throws Exception;
 }

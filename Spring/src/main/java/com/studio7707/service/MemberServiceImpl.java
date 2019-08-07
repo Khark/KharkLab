@@ -1,6 +1,7 @@
 package com.studio7707.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -46,5 +47,17 @@ public class MemberServiceImpl implements MemberService {
 	public void updateMember(MemberVO vo) throws Exception {
 
 	}
-
+	@Override
+	public MemberVO loginMember(MemberVO vo) throws Exception{
+		String id = vo.getUserId();
+		String pwd = vo.getUserPw();
+		System.out.print("MemberServiceIMPL"+id + pwd);
+		vo.setUserId(id);
+		vo.setUserPw(pwd);
+		
+		return memberDao.loginMember(vo);
+		
+	}
+	
+	
 }

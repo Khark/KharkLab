@@ -1,6 +1,7 @@
 package com.studio7707.DAO;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -16,20 +17,20 @@ public class MemberDAOImpl implements MemberDAO {
 	SqlSession sqlSession;
 
 	private static String namespace = "com.studio7707.mapper.MemberMapper.";
-	
+
 	@Override
 	public List<MemberVO> memberList() throws Exception {
-		return sqlSession.selectList(namespace+"memberList");
+		return sqlSession.selectList(namespace + "memberList");
 	}
 
 	@Override
 	public void joinMember(MemberVO vo) throws Exception {
 		System.out.println("MemberDAOImpl :");
-		sqlSession.insert(namespace+"joinMember", vo);
+		sqlSession.insert(namespace + "joinMember", vo);
 	}
 
 	@Override
-	public MemberVO viewMember()throws Exception {
+	public MemberVO viewMember() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -43,6 +44,13 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void updateMember(MemberVO vo) throws Exception {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public MemberVO loginMember(MemberVO vo) throws Exception {
+		System.out.println("SQL:"+namespace + "memberLogin" + vo);
+		return sqlSession.selectOne(namespace + "memberLogin", vo);
 
 	}
 
