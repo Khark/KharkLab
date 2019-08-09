@@ -1,7 +1,6 @@
 package com.studio7707.DAO;
 
 import java.util.List;
-import java.util.Map;
 
 import com.studio7707.DTO.MemberVO;
 

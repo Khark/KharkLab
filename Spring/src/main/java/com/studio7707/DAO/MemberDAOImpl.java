@@ -1,7 +1,6 @@
 package com.studio7707.DAO;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -49,7 +48,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberVO loginMember(MemberVO vo) throws Exception {
-		System.out.println("SQL:"+namespace + "memberLogin" + vo);
+		System.out.println("SQL:" + namespace + "memberLogin" + vo);
 		return sqlSession.selectOne(namespace + "memberLogin", vo);
 
 	}

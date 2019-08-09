@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,20 +23,20 @@ public class BoardController {
 
 	@Inject
 	BoardService boardService;
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+
 	/*
 	 * @RequestMapping(value = "/", method =RequestMethod.GET) public String home()
 	 * throws Exception{
-	 * 
 	 * return "list";
-	 * 
 	 * }
 	 */
 	/*
-	 * 게시판 입장 컨트롤러
-	 * 가장 처음 리스트를 불러오는 컨트롤러
+	 * 게시판 입장 컨트롤러 가장 처음 리스트를 불러오는 컨트롤러
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public ModelAndView list() throws Exception {
+		logger.info("BoardController LIST");
 		List<BoardVO> list = boardService.listAll();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/list");
@@ -42,6 +44,7 @@ public class BoardController {
 		return mav;
 
 	}
+
 	/*
 	 * 게시글 작성 페이지로 가기 위한 컨트롤러
 	 */
@@ -64,7 +67,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
-		//boardService.increaseViewcnt(bno, session);
+		// boardService.increaseViewcnt(bno, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/view");
 		mav.addObject("dto", boardService.read(bno));
@@ -80,7 +83,7 @@ public class BoardController {
 		boardService.delete(bno);
 		return "redirect:list";
 	}
-	
+
 	/*
 	 * 수정 페이지를 호출하기 위한 컨트롤러
 	 */
@@ -94,9 +97,9 @@ public class BoardController {
 		System.out.println("dto" + boardService.read(bno));
 		return mav;
 	}
-	
-	@RequestMapping(value="update.do", method = RequestMethod.POST)
-	public String update(@ModelAttribute BoardVO vo) throws Exception{
+
+	@RequestMapping(value = "update.do", method = RequestMethod.POST)
+	public String update(@ModelAttribute BoardVO vo) throws Exception {
 		boardService.update(vo);
 		return "redirect:list.do";
 	}

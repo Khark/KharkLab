@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,24 +46,30 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/loginTry", method = RequestMethod.POST)
-	//로그인 시스템
+	// 로그인 시스템
 	public String memberLogin(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		logger.info("loginController");
 		HttpSession session = req.getSession();
 
 		MemberVO login = memberService.loginMember(vo);
-		
-		if(login == null) {
+
+		if (login == null) {
 			session.setAttribute("member", null);
-			
+
 			// setAttribute ? :
 			rttr.addFlashAttribute("msg", false);
-			// addFlashAttribute ? : 
-		}else {
+			// addFlashAttribute ? :
+		} else {
 			session.setAttribute("member", login);
 		}
-		//redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
-		return "redirect:/"; 
+		// redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
+		return "redirect:/";
+	}
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		logger.info("logout");
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
