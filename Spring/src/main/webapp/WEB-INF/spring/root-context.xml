@@ -13,23 +13,30 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-	<!--  1. DB연결  -->
-	<bean id="dataSource"
+	<!-- 1. DB연결 -->
 
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
-
-		<property name="url"
-			value="jdbc:oracle:thin:@192.168.219.114:1521:orcl" />
-
-		<property name="username" value="woo" />
-
-		<property name="password" value="1234" />
-
+	<!-- propertie로 변경 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="WEB-INF\properties\config.properties" />
+		<property name="fileEncoding" value="UTF-8"></property>
 	</bean>
 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value ="${db.username}"/>
+		<property name="password" value ="${db.password}"></property>
+	</bean>
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" 
+		/> <property name="url" value="jdbc:oracle:thin:@192.168.219.114:1521:orcl" 
+		/> <property name="username" value="woo" /> <property name="password" value="1234" 
+		/> </bean> -->
 
 
 	<!-- 2. Mybatis DB 프로그램에서 사용할 객체 -->
@@ -53,7 +60,7 @@
 
 
 
-	<!-- 3. Mybatis DB 프로그램의 자동화 객체 --> 
+	<!-- 3. Mybatis DB 프로그램의 자동화 객체 -->
 
 	<bean id="sqlSession"
 		class="org.mybatis.spring.SqlSessionTemplate">
@@ -62,7 +69,7 @@
 			ref="sqlSessionFactory" />
 
 	</bean>
-	
+
 </beans>
 
 
