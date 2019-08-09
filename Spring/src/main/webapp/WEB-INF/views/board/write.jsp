@@ -7,9 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<jsp:include page="session.jsp" flush="false" />
 
-<!-- <script type="text/javascript" src="<c:url value='/js/jquery.3.4.1.min.js'/>"></script>
- -->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script>
@@ -20,26 +19,24 @@
 			var title = $("#title").val();
 			var content = $("#content").val();
 			var writer = $("#writer").val();
-			
-			
+
 			if (title == "") {
 				alert("제목을 입력하세요");
 				document.write.title.focus();
 				return;
 			}
-			
-			if (writer == ""){
+
+			if (writer == "") {
 				alert("작성자를 입력하세요")
 				document.write.writer.focus();
 				return;
 			}
-			if (content == ""){
+			if (content == "") {
 				alert("내용을 입력하세요")
 				document.write.content.focus();
 				return;
 			}
-			
-			
+
 			document.write.submit();
 		});
 	});

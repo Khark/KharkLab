@@ -27,9 +27,7 @@ public class BoardController {
 
 	/*
 	 * @RequestMapping(value = "/", method =RequestMethod.GET) public String home()
-	 * throws Exception{
-	 * return "list";
-	 * }
+	 * throws Exception{ return "list"; }
 	 */
 	/*
 	 * 게시판 입장 컨트롤러 가장 처음 리스트를 불러오는 컨트롤러
@@ -97,7 +95,9 @@ public class BoardController {
 		System.out.println("dto" + boardService.read(bno));
 		return mav;
 	}
-
+	/*
+	 * 수정 완료 후 데이터 입력하고, 리스트로 이동
+	 */
 	@RequestMapping(value = "update.do", method = RequestMethod.POST)
 	public String update(@ModelAttribute BoardVO vo) throws Exception {
 		boardService.update(vo);

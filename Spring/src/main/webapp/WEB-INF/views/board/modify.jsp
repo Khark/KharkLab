@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<jsp:include page="session.jsp" flush="false" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -39,11 +40,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-이곳은 수정을 하는곳이란다 얘
-<form name="view" method="post">
+	이곳은 수정을 하는곳이란다 얘
+	<form name="view" method="post">
 		<div>
-			제목 <input name="title"  type="text"
-				value="${dto.title}">
+			제목 <input name="title" type="text" value="${dto.title}">
 
 		</div>
 		<%
@@ -55,15 +55,16 @@
 
 		</div>
 
-		<div></div>
-
-		<dtv> 조회수 <!--  {VO.viewcnt}  viewcnt 미구현--> </dtv>
+		<div>
+			조회수
+			<!--  {VO.viewcnt}  viewcnt 미구현-->
+		</div>
 		<div>
 			내용
 			<textarea name="content" id="content" row="4" cols="80">${dto.content}</textarea>
 		</div>
 		<div style="text-align: center; width: 650px;">
-			<input type="hidden" name="bno" id = "bno" value="${dto.bno}">
+			<input type="hidden" name="bno" id="bno" value="${dto.bno}">
 			<button type="button" id="btnUpdate">수정</button>
 			<button type="button" id="btnDelete">삭제</button>
 		</div>

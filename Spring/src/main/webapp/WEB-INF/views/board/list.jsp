@@ -9,9 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<jsp:include page="session.jsp" flush="false" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
 <script>
 	$(document).ready(function() {
 		$("#btnWrite").click(function() {
