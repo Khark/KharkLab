@@ -45,6 +45,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/loginTry", method = RequestMethod.POST)
+	//로그인 시스템
 	public String memberLogin(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		logger.info("loginController");
 		HttpSession session = req.getSession();
@@ -60,8 +61,8 @@ public class MemberController {
 		}else {
 			session.setAttribute("member", login);
 		}
-		
-		return "home";
+		//redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
+		return "redirect:/"; 
 	}
 
 }

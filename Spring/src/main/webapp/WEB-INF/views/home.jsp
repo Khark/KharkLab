@@ -42,6 +42,8 @@
 	<form action="board/list" method="get">
 		<button type="submit">CRUD게시판 가기</button>
 	</form>
+
+	<c:if test="${member != null }">
 		<form name="login" method="post" action="${path}/member/loginTry">
 			<tr>
 				<th scope="row">ID</th>
@@ -53,23 +55,40 @@
 				<th scope="row">비밀번호</th>
 				<td><input type="password" name="userPw" id="pw" class="wdp_90">
 				</td>
-
-
 			</tr>
 
 		</form>
-		<button type="submit" id="login_btn">login</button>
 		<form action="member/write" method="get">
 			<button type="submit">회원가입</button>
 		</form>
-	<c:if test="${member == null} ">
-
+		<button type="submit" id="login_btn">login</button>
 	</c:if>
+
+
 	<c:if test="${msg == false}">
+		<form name="login" method="post" action="${path}/member/loginTry">
+			<tr>
+				<th scope="row">ID</th>
+				<td><input type="text" name="userId" id="id" class="wdp=_90">
+				</td>
+			</tr>
+
+			<tr>
+				<th scope="row">비밀번호</th>
+				<td><input type="password" name="userPw" id="pw" class="wdp_90">
+				</td>
+			</tr>
+
+		</form>
+		<form action="member/write" method="get">
+			<button type="submit">회원가입</button>
+		</form>
+		<button type="submit" id="login_btn">login</button>
 		<p style="color: #f00;">로그인에 실패 했습니다. 아이디 또는 패스워드를 다시 입력해주세요.</p>
 	</c:if>
-	<p>${member.userName} 님 환영합니다.</p>
 	<c:if test="${member != null} ">
+
+		<p>${member.userName}님환영합니다.</p>
 	</c:if>
 
 
