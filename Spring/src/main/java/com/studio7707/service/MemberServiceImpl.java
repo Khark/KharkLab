@@ -64,5 +64,9 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("ServiceImpl"+userId);
 		return memberDao.checkID(userId);
 	}
+	public int checkName(String userName) throws Exception{
+		return memberDao.checkName(userName);
+	}
+
 
 }

@@ -61,5 +61,10 @@ public class MemberDAOImpl implements MemberDAO {
 		// userId));
 		return sqlSession.selectOne(namespace+"checkID",userId);
 	}
+	@Override
+	public int checkName(String userName) throws Exception{
+		
+		return sqlSession.selectOne(namespace+"checkName",userName);
+	}
 
 }

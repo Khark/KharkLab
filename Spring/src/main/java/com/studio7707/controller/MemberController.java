@@ -1,8 +1,5 @@
 package com.studio7707.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,17 +73,26 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+
 	@ResponseBody
-    @RequestMapping(value = "/checkId", method = RequestMethod.POST)
-    public String checkSignup(HttpServletRequest request, Model model)throws Exception {
-        String userId = request.getParameter("userId");
-        logger.info(userId);
-        //int rowcount = memberService.checkSignup(id);
-        int rowcount = memberService.checkID(userId);
-        System.out.println("rowcount"+rowcount);
-        return String.valueOf(rowcount);
-    }
+	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
+	public String checkID(HttpServletRequest request, Model model) throws Exception {
+		String userId = request.getParameter("userId");
+		logger.info(userId);
+		// int rowcount = memberService.checkSignup(id);
+		int rowcount = memberService.checkID(userId);
+		System.out.println("rowcount" + rowcount);
+		return String.valueOf(rowcount);
+	}
 
-
+	@ResponseBody
+	@RequestMapping(value = "/checkName", method = RequestMethod.POST)
+	public String checkName(HttpServletRequest request, Model model) throws Exception {
+		String userName = request.getParameter("userName");
+		// int rowcount = memberService.checkSignup(id);
+		int rowcount = memberService.checkName(userName);
+		System.out.println("rowcount" + rowcount);
+		return String.valueOf(rowcount);
+	}
 
 }

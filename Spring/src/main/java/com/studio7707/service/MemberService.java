@@ -19,4 +19,6 @@ public interface MemberService {
 	public MemberVO loginMember(MemberVO vo) throws Exception;
 
 	public int checkID(String userId) throws Exception;
+
+	public int checkName(String userName) throws Exception;
 }

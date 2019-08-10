@@ -40,10 +40,7 @@
 			}
 			document.join.submit();
 		});
-	});
-</script>
-<script>
-	$(document).ready(function() {
+
 		$("#userId").blur(function() {
 			$.ajax({
 				type : "POST",
@@ -53,12 +50,37 @@
 				},
 				success : function(data) {
 					if ($.trim(data) == 0) {
-						$("#checkID").text($("#userId") + "는 사용가능한 ID입니다.");
+						$("#checkID").text("사용 가능한 ID입니다.");
+						$("#checkID").css("color", "blue");
+
+					} else {
+						$("#checkID").text("사용 불가능한 ID입니다.");
 						$("#checkID").css("color", "red");
 						$("#join").attr("disable", true);
 
+					}
+				}
+
+			})
+
+		});
+
+		$("#userName").blur(function() {
+			$.ajax({
+				type : "POST",
+				url : "${pageContext.request.contextPath}/member/checkName",
+				data : {
+					"userName" : $("#userName").val()
+				},
+				success : function(data) {
+					if ($.trim(data) == 0) {
+						$("#checkName").text("사용 가능한 닉네임입니다.");
+						$("#checkName").css("color", "blue");
+
 					} else {
-						$("#checkID").text("사용불가능한 ID입니다.");
+						$("#checkName").text("사용 불가능한 닉네임입니다.");
+						$("#checkName").css("color", "red");
+						$("#join").attr("disable", true);
 
 					}
 				}
@@ -84,6 +106,8 @@
 		<div>
 			닉네임<input name="userName" id="userName" size="20"
 				placeholder="닉네임을 입력하세요">
+			<div id="checkName" name="checkName"></div>
+
 		</div>
 		<div>
 			PWD<input name="userPw" id="userPw" size="20"
@@ -95,7 +119,7 @@
 		</div>
 		<div style="width: 350px; text-align: center;">
 			<button type="button" id="joinSave" name="joinSave">회원가입</button>
-			<button type="button"history.back();>뒤로가기</button>
+			<input type="button" value="뒤로가기" onclick="location.href='/'">
 		</div>
 
 	</form>
