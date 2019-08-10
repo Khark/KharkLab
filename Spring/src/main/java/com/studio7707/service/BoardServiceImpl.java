@@ -20,6 +20,7 @@ public class BoardServiceImpl implements BoardService {
 		String title = vo.getTitle();
 		String content = vo.getContent();
 		String writer = vo.getWriter();
+		System.out.println("writer"+writer);
 		/*
 		 * title = title.replace("<", "&lt;"); title = title.replace("<", "&gt;");
 		 * writer = writer.replace("<", "&lt;"); writer = writer.replace("<", "&gt");

@@ -30,7 +30,7 @@
 	});
 </script>
 
-<title>f</title>
+<title></title>
 
 
 </head>
@@ -57,13 +57,16 @@
 				value="${dto.viewcnt}">
 
 		</div>
+		<p>${member.userName}</p>
 		<div>
 			내용
 			<textarea name="content" id="content" row="4" cols="80">${dto.content}</textarea>
 		</div>
 		<div style="text-align: center; width: 650px;">
 			<input type="hidden" name="bno" id="bno" value="${dto.bno}">
+			<!--<c:if test = "$ == writer}">
 			<button type="button" id="btnUpdate">수정</button>
+		</c:if>-->
 			<button type="button" id="btnDelete">삭제</button>
 		</div>
 

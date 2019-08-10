@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.studio7707.DTO.MemberVO;
 
+
 public interface MemberDAO {
 
 	public List<MemberVO> memberList() throws Exception;
@@ -17,4 +18,6 @@ public interface MemberDAO {
 	public void updateMember(MemberVO vo) throws Exception;
 	
 	public MemberVO loginMember(MemberVO vo) throws Exception;
+	
+	public int checkID(String userId) throws Exception;
 }

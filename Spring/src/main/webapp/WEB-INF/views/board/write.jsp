@@ -18,7 +18,6 @@
 
 			var title = $("#title").val();
 			var content = $("#content").val();
-			var writer = $("#writer").val();
 
 			if (title == "") {
 				alert("제목을 입력하세요");
@@ -26,11 +25,6 @@
 				return;
 			}
 
-			if (writer == "") {
-				alert("작성자를 입력하세요")
-				document.write.writer.focus();
-				return;
-			}
 			if (content == "") {
 				alert("내용을 입력하세요")
 				document.write.content.focus();
@@ -45,14 +39,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<h2>게시글 작성</h2>
 	<form name="write" method="post" action="${path}/board/insert.do">
 		<div>
 			제목 <input name="title" id="title" size="80" placeholder="제목을 입력하세요">
 		</div>
 		<div>
-			작성자 <input name="writer" id="writer" placeholder="작성자 ">
+			<input name="writer" id="writer" type="hidden" value="${member.userName}">
 		</div>
 		<div>
 			내용

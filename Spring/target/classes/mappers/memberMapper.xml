@@ -24,13 +24,32 @@
 	</insert>
 
 
-	<select id = "memberLogin" resultType ="com.studio7707.DTO.MemberVO">
+	<select id="memberLogin"
+		resultType="com.studio7707.DTO.MemberVO">
 		SELECT userId, userName
 		FROM
 		SPRING_MEMBER
-		WHERE userId = #{userId} AND userPw = #{userPW}
-		
+		WHERE userId =
+		#{userId} AND userPw = #{userPW}
+
 	</select>
+
+	<select id="checkID" parameterType="String" resultType="int">
+	<!-- resultType을 int로 해줘야 반환되는 값이 에러가나지 않는다... 이것때문에 많이 해맴... -->
+		SELECT count(*) userId FROM SPRING_MEMBER
+		<!-- count(*)를 한다면 중복되는 ID가 있다면 1을 아니라면 0값을 뱉어냄(?) 그래서 0이면 중복되는 ID가 없고, 
+			1이면 중복이다. -->
+		WHERE userId = #{userId}
+
+	</select>
+
+
+	<select id="checkName" parameterType="String" resultType="int">
+		SELECT
+		COUNT(*) FROM SPRING_MEMBER
+		WHERE userName = #{userName}
+	</select>
+
 
 </mapper>
 

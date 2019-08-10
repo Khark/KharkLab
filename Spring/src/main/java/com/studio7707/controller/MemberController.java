@@ -1,5 +1,8 @@
 package com.studio7707.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,10 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.studio7707.DTO.MemberVO;
@@ -65,11 +70,24 @@ public class MemberController {
 		// redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
 		return "redirect:/";
 	}
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception {
 		logger.info("logout");
 		session.invalidate();
 		return "redirect:/";
 	}
+	@ResponseBody
+    @RequestMapping(value = "/checkId", method = RequestMethod.POST)
+    public String checkSignup(HttpServletRequest request, Model model)throws Exception {
+        String userId = request.getParameter("userId");
+        logger.info(userId);
+        //int rowcount = memberService.checkSignup(id);
+        int rowcount = memberService.checkID(userId);
+        System.out.println("rowcount"+rowcount);
+        return String.valueOf(rowcount);
+    }
+
+
 
 }

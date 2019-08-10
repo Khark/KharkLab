@@ -5,16 +5,18 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.studio7707.DTO.MemberVO;
 
-@Repository
+@Repository("MemberDAO")
 public class MemberDAOImpl implements MemberDAO {
 
 	@Inject
 	SqlSession sqlSession;
 
+	@Autowired
 	private static String namespace = "com.studio7707.mapper.MemberMapper.";
 
 	@Override
@@ -51,6 +53,13 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("SQL:" + namespace + "memberLogin" + vo);
 		return sqlSession.selectOne(namespace + "memberLogin", vo);
 
+	}
+
+	@Override
+	public int checkID(String userId) throws Exception {
+		 System.out.println("checkID:"+ sqlSession.selectOne(namespace+"checkID",userId));
+		// userId));
+		return sqlSession.selectOne(namespace+"checkID",userId);
 	}
 
 }

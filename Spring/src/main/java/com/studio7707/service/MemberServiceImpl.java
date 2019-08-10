@@ -59,4 +59,10 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	@Override
+	public int checkID(String userId) throws Exception {
+		System.out.println("ServiceImpl"+userId);
+		return memberDao.checkID(userId);
+	}
+
 }

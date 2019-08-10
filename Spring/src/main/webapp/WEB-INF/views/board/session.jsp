@@ -16,7 +16,7 @@
 				</th>
 				<th><a href="/">뒤로가기</a></th>
 				<th width="50%"></th>
-				<th align="right"><a href="member/logout">로그아웃</a></th>
+				<th align="right"><a href ="../member/logout"> 로그아웃</a></th>
 
 			</c:if>
 			
