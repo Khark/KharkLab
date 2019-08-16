@@ -1,5 +1,7 @@
 package com.studio7707.controller;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,6 +38,8 @@ public class BoardController {
 	public ModelAndView list() throws Exception {
 		logger.info("BoardController LIST");
 		List<BoardVO> list = boardService.listAll();
+		
+		//ArrayList<BoardVO> list = boardService.listAll();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/list");
 		mav.addObject("list", list);
