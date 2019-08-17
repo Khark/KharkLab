@@ -42,12 +42,15 @@
 		});
 
 		$("#userId").blur(function() {
+			var user_Id = { //JSON용
+					"userId" : $("#userId").val()
+			}
+			
 			$.ajax({
 				type : "POST",
 				url : "${pageContext.request.contextPath}/member/checkId",
-				data : {
-					"userId" : $("#userId").val()
-				},
+				data : user_Id, //JSON용
+					//{"userId" : $("#userId").val()},
 				success : function(data) {
 					if ($.trim(data) == 0) {
 						$("#checkID").text("사용 가능한 ID입니다.");
@@ -66,12 +69,17 @@
 		});
 
 		$("#userName").blur(function() {
-			$.ajax({
+			//JSON용
+			var user_name = {
+					"userName" : $("#userName").val()
+			}
+			 $.ajax({
 				type : "POST",
 				url : "${pageContext.request.contextPath}/member/checkName",
-				data : {
-					"userName" : $("#userName").val()
-				},
+				data : 
+					user_name,// JSON사용
+					//{"userName" : $("#userName").val()},  //JSON 미사용
+				
 				success : function(data) {
 					if ($.trim(data) == 0) {
 						$("#checkName").text("사용 가능한 닉네임입니다.");
@@ -85,8 +93,9 @@
 					}
 				}
 
-			})
-
+			}) 
+			
+			
 		});
 
 	});
