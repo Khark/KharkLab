@@ -14,9 +14,14 @@ public interface BoardDAO {
 	
 	public void delete(int bno) throws Exception;
 	
-	public List<BoardVO> listAll() throws Exception;
+/*	public List<BoardVO> listAll() throws Exception;
+*/	
+	public List<BoardVO> listAll(int dislpalyPost, int postNum) throws Exception;
+
+	public int count() throws Exception;
 	
 	public void increaseViewcnt(int bno) throws Exception;
+	
 
 }
 

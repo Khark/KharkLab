@@ -1,7 +1,5 @@
 package com.studio7707.controller;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,17 +34,37 @@ public class BoardController {
 	 * 게시판 입장 컨트롤러 가장 처음 리스트를 불러오는 컨트롤러
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView list() throws Exception {
-		logger.info("BoardController LIST");
-		List<BoardVO> list = boardService.listAll();
-		
-		//ArrayList<BoardVO> list = boardService.listAll();
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("board/list");
-		mav.addObject("list", list);
-		return mav;
+	public void listPage(Model model, int num) throws Exception {
+		int count = boardService.count();
 
+		int postNum = num * 10;
+
+		int pageNum = (int) Math.ceil((double) count / (double) 10);
+
+		//int selectNum = 1;
+		
+		int disPlayPost = (num - 1 ) * 10;
+		
+		List<BoardVO> list = null;
+		
+		list = boardService.listAll(disPlayPost+1, postNum);
+		System.out.print("번호가 궁금하다.."+disPlayPost);
+		System.out.println( postNum);
+		model.addAttribute("list", list);
+		model.addAttribute("pageNum", pageNum);
 	}
+
+	/*
+	 * public ModelAndView list() throws Exception {
+	 * logger.info("BoardController LIST"); List<BoardVO> list =
+	 * boardService.listAll();
+	 * 
+	 * //ArrayList<BoardVO> list = boardService.listAll(); ModelAndView mav = new
+	 * ModelAndView(); mav.setViewName("board/list"); mav.addObject("list", list);
+	 * return mav;
+	 * 
+	 * }
+	 */
 
 	/*
 	 * 게시글 작성 페이지로 가기 위한 컨트롤러
@@ -61,7 +80,7 @@ public class BoardController {
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String insert(@ModelAttribute BoardVO vo) throws Exception {
 		boardService.create(vo);
-		return "redirect:list.do";
+		return "redirect:list?num=1";
 	}
 
 	/*
@@ -99,6 +118,7 @@ public class BoardController {
 		System.out.println("dto" + boardService.read(bno));
 		return mav;
 	}
+
 	/*
 	 * 수정 완료 후 데이터 입력하고, 리스트로 이동
 	 */

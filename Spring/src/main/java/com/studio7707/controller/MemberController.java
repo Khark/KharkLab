@@ -50,20 +50,24 @@ public class MemberController {
 	// 로그인 시스템
 	public String memberLogin(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		logger.info("loginController");
-		HttpSession session = req.getSession();
+		try {
+			HttpSession session = req.getSession();
 
-		MemberVO login = memberService.loginMember(vo);
+			MemberVO login = memberService.loginMember(vo);
 
-		if (login == null) {
-			session.setAttribute("member", null);
+			if (login == null) {
+				session.setAttribute("member", null);
 
-			// setAttribute ? :
-			rttr.addFlashAttribute("msg", false);
-			// addFlashAttribute ? :
-		} else {
-			session.setAttribute("member", login);
+				// setAttribute ? :
+				rttr.addFlashAttribute("msg", false);
+				// addFlashAttribute ? :
+			} else {
+				session.setAttribute("member", login);
+			}
+			// redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		// redirect를 해주지 않으면 member/loginTry 로 경로가 잡힘 즉 다음 기능에서 제대로된 URL이 잡히지 않음
 		return "redirect:/";
 	}
 

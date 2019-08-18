@@ -10,6 +10,13 @@ public class BoardVO {
 	private String writer;
 	private Date   regdate;
 	private int    viewcnt;
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
+	private int rnum;
 	public int getBno() {
 		return bno;
 	}
@@ -49,7 +56,7 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + "]";
+				+ regdate + ", viewcnt=" + viewcnt + ", rnum=" + rnum + "]";
 	}
 	
 	

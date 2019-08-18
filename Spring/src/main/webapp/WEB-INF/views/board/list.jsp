@@ -47,6 +47,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<c:forEach begin="1" end="${pageNum}" var="num">
+  <span>
+    <a href="/board/list?num=${num}">${num}</a>
+  </span>
+</c:forEach>
 
 </body>
 </html>

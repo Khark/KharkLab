@@ -42,7 +42,7 @@
 					alert("로그인을 해야 게시판으로 갈 수 있습니다.");
 					return;
 				} else {
-					location.href = 'board/list';
+					location.href = 'board/list?num=1';
 					return;
 				}
 			});

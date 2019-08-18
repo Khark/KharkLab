@@ -20,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
 		String title = vo.getTitle();
 		String content = vo.getContent();
 		String writer = vo.getWriter();
-		System.out.println("writer"+writer);
+		System.out.println("writer" + writer);
 		/*
 		 * title = title.replace("<", "&lt;"); title = title.replace("<", "&gt;");
 		 * writer = writer.replace("<", "&lt;"); writer = writer.replace("<", "&gt");
@@ -51,28 +51,21 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.delete(bno);
 	}
 
-	@Override
+	/*@Override
 	public List<BoardVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.print("list query" + boardDao.listAll());
 		return boardDao.listAll();
+	}*/
+	@Override
+	public List<BoardVO> listAll(int displayPost, int postNum) throws Exception{
+		return boardDao.listAll(displayPost, postNum);
+	}
+	
+	public int count() throws Exception{
+		return boardDao.count();
 	}
 
-	/*
-	 * @Override public void increaseViewcnt(int bno, HttpSession session) throws
-	 * Exception {
-	 * 
-	 * long update_time = 0;
-	 * 
-	 * if(session.getAttribute("update_time_"+bno) != null) { update_time =
-	 * (Long)session.getAttribute("update_time_"+bno); }
-	 * 
-	 * long current_time = System.currentTimeMillis();
-	 * 
-	 * if(current_time - update_time > 5*1000) { boardDao.increaseViewcnt(bno);
-	 * 
-	 * session.setAttribute("update_time_" +bno, current_time ); }
-	 * 
-	 * }
-	 */
+	
 
 }

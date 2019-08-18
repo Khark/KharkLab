@@ -14,6 +14,12 @@ public interface BoardService {
 
 	public void delete(int bno) throws Exception;
 
-	public List<BoardVO> listAll() throws Exception;
+	/*public List<BoardVO> listAll() throws Exception;
+	*/
+	
+	public List<BoardVO> listAll(int displayPost, int postNum) throws Exception;
+	
+	public int count() throws Exception;
+
 
 }
