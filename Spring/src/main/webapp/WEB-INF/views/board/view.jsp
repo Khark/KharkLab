@@ -7,7 +7,35 @@
 
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean"
+	rel="stylesheet">
+<style>
+p {
+	font-family: "Nanum Gothic", sans-serif;
+	font-size: 23px;
+}
+
+p.a {
+	font-weight: 400;
+}
+
+p.b {
+	font-weight: 700;
+}
+
+p.c {
+	font-weight: 800;
+}
+
+p.d {
+	font-weight: bold;
+}
+</style>
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 	$(document).ready(function() {
@@ -35,9 +63,10 @@
 
 </head>
 <body>
+	<p>
 	<form name="view" method="post">
 		<div>
-			제목 <input name="title" readonly="readonly" type="text"
+			<p>제목</p> <input name="title" readonly="readonly" type="text"
 				value="${dto.title}">
 
 		</div>
@@ -76,5 +105,6 @@
 			</div>
 		</c:if>
 	</form>
+	</p>
 </body>
 </html>
