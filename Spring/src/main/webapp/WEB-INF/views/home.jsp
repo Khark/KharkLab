@@ -10,14 +10,22 @@
 </head>
 <body>끼에
 <body>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
-	var app = new Vue({
-		  el: '#app',
-		  data: {
-		    message: '안녕하세요 Vue!'
-		  }
-		})
-	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
+		rel="stylesheet">
+	<style>
+body {
+	background: #f8f8f8;
+	padding: 60px 0;
+}
+
+#login-form>div {
+	margin: 15px 0;
+}
+</style>
 
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -56,14 +64,13 @@
 			});
 		});
 	</script>
-<div id="app">
-  {{ message }}
-</div>
+	<div id="app">{{ message }}</div>
 
 	<button type="submit" id="toBoard">게시판 가기</button>
 
 	<c:if test="${member == null }">
-		<form name="login" method="post" action="${path}/member/loginTry">
+
+		<%-- <form name="login" method="post" action="${path}/member/loginTry">
 			<tr>
 				<th scope="row">ID</th>
 				<td><input type="text" name="userId" id="id" class="wdp=_90">
@@ -76,10 +83,39 @@
 			</tr>
 
 		</form>
+		<button type="submit" id="login_btn">login</button>
 		<form action="member/write" method="get">
 			<button type="submit">회원가입</button>
-		</form>
-		<button type="submit" id="login_btn">login</button>
+		</form> --%>
+		<div class="container">
+			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title">환영합니다!</div>
+					</div>
+					<div class="panel-body">
+						<form name="login" method="post" action="${path}/member/loginTry">
+							<div>
+								<input type="text" class="form-control" name="userId" id="id"
+									placeholder="id" autofocus>
+
+							</div>
+							<div>
+								<input type="password" class="form-control" name="userPw"
+									id="pw" placeholder="Password">
+
+							</div>
+							<div>
+								<button type="submit" class="form-control btn btn-primary"
+									id="login_btn">로그인</button>
+
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</c:if>
 
 	<c:if test="${msg == false}">

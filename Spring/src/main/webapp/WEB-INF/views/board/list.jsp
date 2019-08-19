@@ -6,23 +6,30 @@
 <html>
 
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <jsp:include page="session.jsp" flush="false" />
-
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
+	rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-	$(document).ready(function() {
+	
+	 $(document).ready(function() {
 		$("#btnWrite").click(function() {
 			location.href = "${path}/board/write.do";
 		});
 
+		/* 부트스트랩으로 대체되었다.
 		$('p:odd').css('background-color', 'blue');
 		$('tr:even').css('background-color', 'gray');
 		$('tr:first').css('background-color', 'white');
-
-	});
+ */
+	}); 
 </script>
 
 
@@ -32,7 +39,7 @@
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<button type="button" id="btnWrite">글쓰기</button>
 
-	<table border="1" width="600px">
+	<table border="1" width="600px" class="table table-striped">
 		<tr style="text-align: center">
 			<th>제목</th>
 			<th>작성자</th>
