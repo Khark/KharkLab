@@ -8,8 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>끼에
 <body>
+	<jsp:include page="bar.jsp" flush="false" />
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
@@ -26,6 +27,7 @@ body {
 	margin: 15px 0;
 }
 </style>
+
 
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -64,13 +66,15 @@ body {
 			});
 		});
 	</script>
+	<!-- vue.js 나중에하기
 	<div id="app">{{ message }}</div>
-
-	<button type="submit" id="toBoard">게시판 가기</button>
-
+ -->
+	<!-- <button type="submit" id="toBoard">게시판 가기</button>
+ -->
 	<c:if test="${member == null }">
 
-		<%-- <form name="login" method="post" action="${path}/member/loginTry">
+		<%-- 부트스트랩으로 대체된 곳 
+		<form name="login" method="post" action="${path}/member/loginTry">
 			<tr>
 				<th scope="row">ID</th>
 				<td><input type="text" name="userId" id="id" class="wdp=_90">
@@ -87,10 +91,14 @@ body {
 		<form action="member/write" method="get">
 			<button type="submit">회원가입</button>
 		</form> --%>
-		<div class="container">
-			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="center-block" style='width: 360px;'>
+			<div class="container">
+
+				<!-- class="col-md-4 col-md-offset-3 col-sm-1 col-sm-offset-2 "> -->
+
+
 				<div class="panel panel-success">
-					<div class="panel-heading">
+					<div class="panel-heading center-block">
 						<div class="panel-title">환영합니다!</div>
 					</div>
 					<div class="panel-body">
@@ -106,12 +114,28 @@ body {
 
 							</div>
 							<div>
+								<table height="10px">
+									<td></td>
+								</table>
+							</div>
+
+							<div>
 								<button type="submit" class="form-control btn btn-primary"
 									id="login_btn">로그인</button>
 
-
 							</div>
+
 						</form>
+						<div>
+							<table>
+								<td></td>
+							</table>
+						</div>
+						<div>
+							<form action="member/write" method="get">
+								<button type="submit" class="form-control btn btn-dark">회원가입</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
