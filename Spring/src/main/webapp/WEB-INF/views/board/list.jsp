@@ -18,6 +18,10 @@
 			location.href = "${path}/board/write.do";
 		});
 
+		$('p:odd').css('background-color', 'blue');
+		$('tr:even').css('background-color', 'gray');
+		$('tr:first').css('background-color', 'white');
+
 	});
 </script>
 
@@ -27,17 +31,17 @@
 
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<button type="button" id="btnWrite">글쓰기</button>
+
 	<table border="1" width="600px">
 		<tr style="text-align: center">
-			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
 			<!--  <th>조회수</th>-->
 			<th>작성일자</th>
 		</tr>
 		<c:forEach var="row" items="${list}">
+			<p>
 			<tr>
-				<td>${row.bno}</td>
 				<td><a href="${path}/board/view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<!-- <td>${row.viewcnt}</td> -->
@@ -45,13 +49,14 @@
 				<!-- <td><fmt:formatDate value="${row.regdate}"/></td>
  				-->
 			</tr>
+			</p>
 		</c:forEach>
 	</table>
+
 	<c:forEach begin="1" end="${pageNum}" var="num">
-  <span>
-    <a href="/board/list?num=${num}">${num}</a>
-  </span>
-</c:forEach>
+		<span> <a href="/board/list?num=${num}">${num}</a>
+		</span>
+	</c:forEach>
 
 </body>
 </html>

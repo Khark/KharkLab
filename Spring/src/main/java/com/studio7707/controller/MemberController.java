@@ -39,11 +39,11 @@ public class MemberController {
 	// 회원 정보 입력 폼에서의 이동
 	public String memberJoin(@ModelAttribute MemberVO vo) throws Exception {
 		// 회원 가입기능 실행
-		logger.info("MemberController.memberJoin:" + vo);
+		System.out.println("USERNAME?:" + vo.getUserName());
 		memberService.joinMember(vo);
 
 		// 회원가입을 완료하면 Home으로
-		return "home";
+		return "redirect:../";
 	}
 
 	@RequestMapping(value = "/loginTry", method = RequestMethod.POST)

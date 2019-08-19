@@ -10,6 +10,14 @@
 </head>
 <body>끼에
 <body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: '안녕하세요 Vue!'
+		  }
+		})
+	</script>
 
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -48,7 +56,9 @@
 			});
 		});
 	</script>
-
+<div id="app">
+  {{ message }}
+</div>
 
 	<button type="submit" id="toBoard">게시판 가기</button>
 

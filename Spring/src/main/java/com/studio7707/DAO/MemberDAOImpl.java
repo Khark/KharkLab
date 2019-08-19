@@ -26,7 +26,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public void joinMember(MemberVO vo) throws Exception {
-		System.out.println("MemberDAOImpl :");
+		System.out.println("joinMember" + vo);
 		sqlSession.insert(namespace + "joinMember", vo);
 	}
 

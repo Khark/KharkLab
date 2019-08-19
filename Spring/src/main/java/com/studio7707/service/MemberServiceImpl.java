@@ -25,11 +25,13 @@ public class MemberServiceImpl implements MemberService {
 
 		String id = vo.getUserId();
 		String pwd = vo.getUserPw();
+		String username = vo.getUserName();
 		String Email = vo.getUserEmail();
 		System.out.println(id + pwd + Email);
 		vo.setUserId(id);
 		vo.setUserPw(pwd);
-		vo.setUserName(Email);
+		vo.setUserName(username);
+		vo.setUserEmail(Email);
 		memberDao.joinMember(vo);
 	}
 
