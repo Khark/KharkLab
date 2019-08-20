@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.studio7707.DAO.MemberDAOImpl;
+import com.studio7707.DTO.BoardVO;
 import com.studio7707.DTO.MemberVO;
 
 @Service
@@ -36,8 +37,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO viewMember() throws Exception {
-		return null;
+	public BoardVO viewMember(String UserName) throws Exception {
+		return memberDao.viewMember(UserName);
 	}
 
 	@Override

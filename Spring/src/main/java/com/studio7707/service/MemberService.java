@@ -2,6 +2,7 @@ package com.studio7707.service;
 
 import java.util.List;
 
+import com.studio7707.DTO.BoardVO;
 import com.studio7707.DTO.MemberVO;
 
 public interface MemberService {
@@ -10,7 +11,7 @@ public interface MemberService {
 
 	public void joinMember(MemberVO vo) throws Exception;
 
-	public MemberVO viewMember() throws Exception;
+	public BoardVO viewMember(String UserName) throws Exception;
 
 	public void deleteMember(String userId) throws Exception;
 
@@ -21,4 +22,6 @@ public interface MemberService {
 	public int checkID(String userId) throws Exception;
 
 	public int checkName(String userName) throws Exception;
+	
+	
 }

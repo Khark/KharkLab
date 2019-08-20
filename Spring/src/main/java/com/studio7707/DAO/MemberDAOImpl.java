@@ -5,9 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.studio7707.DTO.BoardVO;
 import com.studio7707.DTO.MemberVO;
 
 @Repository("MemberDAO")
@@ -30,9 +30,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO viewMember() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardVO viewMember(String userName) throws Exception {
+		System.out.println("viewMember"+ userName);
+		/*return sqlSession.selectOne(namespace+"viewMember", UserName);
+		*/
+		return (BoardVO) sqlSession.selectList(namespace+"viewMember", userName);
 	}
 
 	@Override

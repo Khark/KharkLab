@@ -1,9 +1,13 @@
 package com.studio7707.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.junit.runner.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,9 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.studio7707.DTO.BoardVO;
 import com.studio7707.DTO.MemberVO;
 import com.studio7707.service.MemberService;
 
@@ -98,5 +105,31 @@ public class MemberController {
 		System.out.println("rowcount" + rowcount);
 		return String.valueOf(rowcount);
 	}
+	/*@RequestMapping(value ="/view", method= RequestMethod.GET)*/
+	/*public ModelAndView userInfo(@RequestParam String userId) throws Exception{
+		System.out.println("들어는오나?");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/info");
+		mav.addObject("dto", memberService.viewMember(userId));
+		return mav;
+	
+	}*/
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value ="/view", method= RequestMethod.GET)
+
+	/*public String view(@RequestParam String UserName) throws Exception {
+	*/
+	public void view(HttpServletRequest request) throws Exception {
+		String userName = request.getParameter("userName");
+		ModelAndView mav = new ModelAndView();
+	/*	mav.setViewName("member/info");
+		mav.addObject("dto", memberService.viewMember(userName));
+	*/	
+		List <BoardVO> list = null;
+		list = (List<BoardVO>) memberService.viewMember(userName);
+	
+	}
+
+	
 
 }

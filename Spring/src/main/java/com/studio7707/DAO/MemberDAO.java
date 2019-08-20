@@ -2,6 +2,7 @@ package com.studio7707.DAO;
 
 import java.util.List;
 
+import com.studio7707.DTO.BoardVO;
 import com.studio7707.DTO.MemberVO;
 
 
@@ -11,7 +12,7 @@ public interface MemberDAO {
 	
 	public void joinMember(MemberVO vo) throws Exception;
 	
-	public MemberVO viewMember() throws Exception;
+	public BoardVO viewMember(String userName) throws Exception;
 	
 	public void deleteMember(String userId) throws Exception;
 	

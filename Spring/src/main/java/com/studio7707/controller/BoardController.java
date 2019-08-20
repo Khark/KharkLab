@@ -48,13 +48,11 @@ public class BoardController {
 		List<BoardVO> list = null;
 		
 		list = boardService.listAll(disPlayPost+1, postNum);
-		System.out.print("번호가 궁금하다.."+disPlayPost);
-		System.out.println( postNum);
 		model.addAttribute("list", list);
 		model.addAttribute("pageNum", pageNum);
 	}
 
-	/*
+	/* 페이징 처리하면서 쓰지 않게 된 리스트
 	 * public ModelAndView list() throws Exception {
 	 * logger.info("BoardController LIST"); List<BoardVO> list =
 	 * boardService.listAll();
@@ -62,7 +60,6 @@ public class BoardController {
 	 * //ArrayList<BoardVO> list = boardService.listAll(); ModelAndView mav = new
 	 * ModelAndView(); mav.setViewName("board/list"); mav.addObject("list", list);
 	 * return mav;
-	 * 
 	 * }
 	 */
 
