@@ -47,7 +47,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void updateMember(MemberVO vo) throws Exception {
-
+//이ㅏㅇ
 	}
 
 	@Override
