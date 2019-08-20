@@ -15,10 +15,9 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Inject
 	SqlSession sqlSession;
-
-	@Autowired
 	private static String namespace = "com.studio7707.mapper.MemberMapper.";
-
+	// Spring 에선 autuwire annotatino이 지원되지 않아 Injection으로 교체
+	// 치명적인 에러는 아니였지만 콘솔에 WARN이 보기싫은 나 아이고난1
 	@Override
 	public List<MemberVO> memberList() throws Exception {
 		return sqlSession.selectList(namespace + "memberList");

@@ -21,7 +21,8 @@
 
 	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
 	<beans:bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
-	<resources mapping="/resources/**" location="/resources/" />
+<!-- 	<resources mapping="/resources/**" location="/resources/" /> -->
+	<resources mapping="/**" location="/resources/" />
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/js/**" location="/js/" />
 	<!-- HTML 리소스 디렉토리 정의 -->
