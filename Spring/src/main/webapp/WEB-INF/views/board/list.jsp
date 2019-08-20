@@ -35,6 +35,7 @@
 
 </head>
 <body>
+	<jsp:include page="bar.jsp" flush="false" />
 
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<button type="button" id="btnWrite">글쓰기</button>
@@ -52,7 +53,7 @@
 				<td><a href="${path}/board/view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<!-- <td>${row.viewcnt}</td> -->
-				<td>${row.regdate}</td>
+				<td><fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd"/></td>
 				<!-- <td><fmt:formatDate value="${row.regdate}"/></td>
  				-->
 			</tr>

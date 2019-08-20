@@ -11,26 +11,33 @@
 <body>
 	<jsp:include page="bar.jsp" flush="false" />
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 	<link
 		href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
-		rel="stylesheet">
+		rel="stylesheet"> -->
+
+
+
 	<style>
 body {
 	background: #f8f8f8;
 	padding: 60px 0;
+	margin: 0 auto;
 }
 
-#login-form>div {
-	margin: 15px 0;
+#sfrom {
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+}
 }
 </style>
 
 
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<!-- 	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
 	<script>
 		$(document).ready(function() {
 
@@ -53,17 +60,17 @@ body {
 
 			});
 
-			$("#toBoard").click(function() {
-				var userId = $("#id").val();
+			/* 	$("#toBoard").click(function() {
+					var userId = $("#id").val();
 
-				if (userId == "") {
-					alert("로그인을 해야 게시판으로 갈 수 있습니다.");
-					return;
-				} else {
-					location.href = 'board/list?num=1';
-					return;
-				}
-			});
+					if (userId == "") {
+						alert("로그인을 해야 게시판으로 갈 수 있습니다.");
+						return;
+					} else {
+						location.href = 'board/list?num=1';
+						return;
+					}
+				}); */
 		});
 	</script>
 	<!-- vue.js 나중에하기
@@ -71,72 +78,43 @@ body {
  -->
 	<!-- <button type="submit" id="toBoard">게시판 가기</button>
  -->
+	<div class="col-lg-12 text-center">
+		<h1 class="mt-5">STUDIO 7707</h1>
+		<p class="lead">made by Khark</p>
+		<ul class="list-unstyled">
+			<li>환영합니다</li>
+		</ul>
+	</div>
 	<c:if test="${member == null }">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
 
-		<%-- 부트스트랩으로 대체된 곳 
-		<form name="login" method="post" action="${path}/member/loginTry">
-			<tr>
-				<th scope="row">ID</th>
-				<td><input type="text" name="userId" id="id" class="wdp=_90">
-				</td>
-			</tr>
+					<form name="login" method="post" action="${path}/member/loginTry">
+						<div id="sform">
+							<input class="col-sm-2" type="text" name="userId" id="id"
+								placeholder="id"> <input class="col-sm-2"
+								type="password" name="userPw" id="pw" placeholder="Password">
+						</div>
 
-			<tr>
-				<th scope="row">비밀번호</th>
-				<td><input type="password" name="userPw" id="pw" class="wdp_90"></td>
-			</tr>
-
-		</form>
-		<button type="submit" id="login_btn">login</button>
-		<form action="member/write" method="get">
-			<button type="submit">회원가입</button>
-		</form> --%>
-		<div class="center-block" style='width: 360px;'>
-			<div class="container">
-
-				<!-- class="col-md-4 col-md-offset-3 col-sm-1 col-sm-offset-2 "> -->
-
-
-				<div class="panel panel-success">
-					<div class="panel-heading center-block">
-						<div class="panel-title">환영합니다!</div>
-					</div>
-					<div class="panel-body">
-						<form name="login" method="post" action="${path}/member/loginTry">
-							<div>
-								<input type="text" class="form-control" name="userId" id="id"
-									placeholder="id" autofocus>
-
-							</div>
-							<div>
-								<input type="password" class="form-control" name="userPw"
-									id="pw" placeholder="Password">
-
-							</div>
-							<div>
-								<table height="10px">
-									<td></td>
-								</table>
-							</div>
-
-							<div>
-								<button type="submit" class="form-control btn btn-primary"
-									id="login_btn">로그인</button>
-
-							</div>
-
-						</form>
 						<div>
-							<table>
-								<td></td>
+							<table height="10px">
 							</table>
 						</div>
-						<div>
-							<form action="member/write" method="get">
-								<button type="submit" class="form-control btn btn-dark">회원가입</button>
-							</form>
-						</div>
-					</div>
+
+
+						<button type="submit" class="btn btn-primary col-sm-2"
+							id="login_btn">login</button>
+
+
+					</form>
+					<table height="5px"></table>
+					<form action="member/write" method="get">
+						<button type="submit" class="btn  btn-dark col-sm-2">join</button>
+					</form>
+
+
+
 				</div>
 			</div>
 		</div>
@@ -144,15 +122,12 @@ body {
 
 	<c:if test="${msg == false}">
 
-		<p style="color: #f00;">로그인에 실패 했습니다. 아이디 또는 패스워드를 다시 입력해주세요.</p>
+		<p style="color: #f00;" align="center">로그인에 실패 했습니다. 아이디 또는 패스워드를
+			다시 입력해주세요.</p>
 	</c:if>
 
 
-	<c:if test="${member != null }">
-		<p>${member.userName}님환영합니다.</p>
-		<a href="member/logout">로그아웃</a>
 
-	</c:if>
 </body>
 
 

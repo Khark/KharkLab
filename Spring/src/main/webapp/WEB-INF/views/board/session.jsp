@@ -10,16 +10,16 @@
 <body>
 	<table>
 		<tr width="100%">
-			<c:if test="${member != null }">
+			<%-- <c:if test="${member != null }">
 				<th>
 					<p>${member.userName}님환영합니다.</p>
 				</th>
-				<th><a href="/">뒤로가기</a></th>
-				<th width="50%"></th>
-				<th align="right"><a href ="../member/logout"> 로그아웃</a></th>
 
-			</c:if>
-			
+
+			</c:if> --%>
+			<th><a href="/">뒤로가기</a></th>
+			<th width="50%"></th>
+			<th align="right"><a href="../member/logout"> 로그아웃</a></th>
 		</tr>
 		<c:if test="${member == null }">
 			<script language="javascript">
