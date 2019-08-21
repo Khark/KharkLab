@@ -106,5 +106,7 @@ p.d {
 		</c:if>
 	</form>
 	</p>
+	<jsp:include page="replyList.jsp" flush="false" />
+	
 </body>
 </html>

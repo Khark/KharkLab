@@ -52,7 +52,7 @@
 
 	<select id = "viewMember" resultType="com.studio7707.DTO.BoardVO" >
 		SELECT
-		DISTINCT B.TITLE, B.WRITER, B.CONTENT 
+		DISTINCT B.BNO, B.TITLE, B.WRITER, B.CONTENT 
 		FROM SPRING_BOARD B, SPRING_MEMBER M  WHERE B.WRITER = #{userName}
 	
 	</select>

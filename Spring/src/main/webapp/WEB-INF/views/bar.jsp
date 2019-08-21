@@ -35,7 +35,6 @@
 		<p>${member.userName}님환영합니다.</p>
  		<a href="member/view?userName=${member.userName}" >작성 글 보기</a>
  		<a href="member/logout">로그아웃</a>
- <a href="member/view" >작성 글 보기</a>
 
 	</c:if>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">

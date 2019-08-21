@@ -11,7 +11,7 @@ public interface MemberService {
 
 	public void joinMember(MemberVO vo) throws Exception;
 
-	public BoardVO viewMember(String UserName) throws Exception;
+	public List<BoardVO> viewMember(String UserName) throws Exception;
 
 	public void deleteMember(String userId) throws Exception;
 

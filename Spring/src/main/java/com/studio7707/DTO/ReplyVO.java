@@ -2,32 +2,24 @@ package com.studio7707.DTO;
 
 import java.util.Date;
 
-public class BoardVO {
+public class ReplyVO {
 
 	private int bno;
-	private int rnum;
-	private String title;
+	private int rno;
 	private String content;
 	private String writer;
-	private Date   regdate;
-	private int    viewcnt;
-	public int getRnum() {
-		return rnum;
-	}
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
+	private Date regdate;
 	public int getBno() {
 		return bno;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	public String getTitle() {
-		return title;
+	public int getRno() {
+		return rno;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 	public String getContent() {
 		return content;
@@ -47,16 +39,10 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getViewcnt() {
-		return viewcnt;
-	}
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
-	}
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + ", rnum=" + rnum + "]";
+		return "ReplyVO [bno=" + bno + ", rno=" + rno + ", content=" + content + ", writer=" + writer + ", regdate="
+				+ regdate + "]";
 	}
 	
 	

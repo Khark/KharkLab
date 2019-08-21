@@ -12,7 +12,7 @@ public interface MemberDAO {
 	
 	public void joinMember(MemberVO vo) throws Exception;
 	
-	public BoardVO viewMember(String userName) throws Exception;
+	public List<BoardVO> viewMember(String userName) throws Exception;
 	
 	public void deleteMember(String userId) throws Exception;
 	

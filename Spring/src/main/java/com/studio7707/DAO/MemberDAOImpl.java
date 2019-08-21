@@ -30,11 +30,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public BoardVO viewMember(String userName) throws Exception {
+	public List<BoardVO> viewMember(String userName) throws Exception {
 		System.out.println("viewMember"+ userName);
 		/*return sqlSession.selectOne(namespace+"viewMember", UserName);
 		*/
-		return (BoardVO) sqlSession.selectList(namespace+"viewMember", userName);
+		return sqlSession.selectList(namespace+"viewMember", userName);
 	}
 
 	@Override

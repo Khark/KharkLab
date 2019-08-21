@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -9,18 +9,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-얘 이곳은 정보가 있는 곳이란다 아이고난1
-<c:forEach var="row" items="${list}">
+	얘 이곳은 정보가 있는 곳이란다 아이고난1
+	<table border="1" width="600px" class="table table-striped">
+		<tr style="text-align: center">
+			<th>제목</th>
+			<th>작성자</th>
+			<!--  <th>조회수</th>-->
+			<th>작성일자</th>
+			
+		</tr>
+		<c:forEach var="row" items="${list}">
 			<p>
 			<tr>
 				<td><a href="${path}/board/view?bno=${row.bno}">${row.title}</a></td>
 				<td>${row.writer}</td>
 				<!-- <td>${row.viewcnt}</td> -->
-				<td><fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd"/></td>
+				<td><fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd" /></td>
 				<!-- <td><fmt:formatDate value="${row.regdate}"/></td>
  				-->
 			</tr>
 			</p>
 		</c:forEach>
+	</table>
 </body>
 </html>

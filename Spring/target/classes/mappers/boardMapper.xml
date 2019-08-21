@@ -17,12 +17,11 @@
 		FROM SPRING_BOARD
 		ORDER BY BNO DESC) P
 		)
-		 WHERE RNUM BETWEEN #{displayPost} AND #{postNum}
-		<!-- WHERE RNUM BETWEEN #{} AND #{}
- -->
+		WHERE RNUM BETWEEN #{displayPost} AND #{postNum}
+		<!-- WHERE RNUM BETWEEN #{} AND #{} -->
 
 	</select>
-	
+
 	<select id="count" resultType="int">
 		SELECT COUNT(bno)
 		FROM SPRING_BOARD

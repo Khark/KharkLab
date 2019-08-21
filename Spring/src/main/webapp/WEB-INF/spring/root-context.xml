@@ -53,9 +53,12 @@
 
 		<!-- DB에서 실행할 sql 문장을 태그로 정의해 놓는다. -->
 
-		<property name="mapperLocations"
+	<!-- 	<property name="mapperLocations"
 			value="classpath:mappers/**/*Mapper.xml" />
-
+ -->
+ 	<property name="mapperLocations"
+			value="classpath:mappers/**/*Mapper.xml" />
+ 
 	</bean>
 
 

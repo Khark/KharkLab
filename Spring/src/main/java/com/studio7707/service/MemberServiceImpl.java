@@ -37,7 +37,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public BoardVO viewMember(String UserName) throws Exception {
+	public List<BoardVO> viewMember(String UserName) throws Exception {
 		return memberDao.viewMember(UserName);
 	}
 

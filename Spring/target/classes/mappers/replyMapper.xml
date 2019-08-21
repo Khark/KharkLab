@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studio7707.mapper.ReplyMapper">
+
+	<insert id="writeReply">
+		INSERT INTO SPRING_REPLY
+		(bno, content, writer, rno)
+		VALUES (#{BNO}, #{content}, #{writer}
+
+		(SELECT NVL(MAX(rno) +1, 1) FROM SPRING_REPLY)
+		)
+	</insert>
+	<select id="listReply" resultType="com.studio7707.DTO.ReplyVO">
+		SELECT CONTENT, WRITER
+		FROM
+		SPRING_REPLY
+		WHERE BNO = {#BNO}
+
+	</select>
+	<delete id="deleteReply">
+		DELETE FROM SPRING_REPLY
+		WHERE RNO = {#RNO}
+	</delete>
+
+</mapper>

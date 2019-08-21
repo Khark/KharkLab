@@ -35,7 +35,6 @@
 
 </head>
 <body>
-	<jsp:include page="bar.jsp" flush="false" />
 
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<button type="button" id="btnWrite">글쓰기</button>
