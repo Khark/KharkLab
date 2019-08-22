@@ -76,5 +76,12 @@
 		WHERE bno = #{bno}
 	</delete>
 
+	<select id="listReply" resultType="com.studio7707.DTO.ReplyVO">
+		SELECT CONTENT, WRITER
+		FROM
+		SPRING_REPLY
+		WHERE BNO = #{bno}
+
+	</select>
 </mapper>
 

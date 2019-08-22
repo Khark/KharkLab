@@ -46,8 +46,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="../">Home
 				</a></li>
 				<li class="nav-item"><a class="nav-link" id="toBoard"
 					href="board/list?num=1">Board</a></li>

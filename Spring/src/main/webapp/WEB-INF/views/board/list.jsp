@@ -28,7 +28,7 @@
 		$('p:odd').css('background-color', 'blue');
 		$('tr:even').css('background-color', 'gray');
 		$('tr:first').css('background-color', 'white');
- */
+ 		*/
 	}); 
 </script>
 

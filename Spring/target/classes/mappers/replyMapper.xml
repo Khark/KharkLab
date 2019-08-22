@@ -6,21 +6,25 @@
 	<insert id="writeReply">
 		INSERT INTO SPRING_REPLY
 		(bno, content, writer, rno)
-		VALUES (#{BNO}, #{content}, #{writer}
+		VALUES (#{bno}, #{content}, #{writer},
 
-		(SELECT NVL(MAX(rno) +1, 1) FROM SPRING_REPLY)
+		(SELECT NVL(MAX(rno) +1, 1) FROM
+		SPRING_REPLY)
 		)
 	</insert>
 	<select id="listReply" resultType="com.studio7707.DTO.ReplyVO">
-		SELECT CONTENT, WRITER
+		SELECT CONTENT, WRITER, BNO, RNO, REGDATE
 		FROM
 		SPRING_REPLY
-		WHERE BNO = {#BNO}
-
+		WHERE BNO = #{bno}
 	</select>
+	<select id = "countReply" resultType="int">
+		SELECT COUNT(bno) FROM SPRING_REPLY WHERE BNO =#{bno}
+	</select>
+	
 	<delete id="deleteReply">
 		DELETE FROM SPRING_REPLY
-		WHERE RNO = {#RNO}
+		WHERE RNO = #{rno}
 	</delete>
 
 </mapper>

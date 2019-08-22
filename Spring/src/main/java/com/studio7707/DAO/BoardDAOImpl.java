@@ -11,8 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.studio7707.DTO.BoardVO;
+import com.studio7707.DTO.ReplyVO;
 
-@Repository
+@Repository("BoardDAO")
 public class BoardDAOImpl implements BoardDAO {
 	private Logger logger = LoggerFactory.getLogger(BoardDAOImpl.class);
 
@@ -68,6 +69,11 @@ public class BoardDAOImpl implements BoardDAO {
 
 		SqlSession.update(namespace + "increaseViewcnt");
 	}
-
+	@Override
+	public List<ReplyVO> replyList(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("ReplyListall bno : " +bno);
+		return SqlSession.selectList(namespace + "listReply", bno);
+	}
 
 }

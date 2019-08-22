@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.studio7707.DAO.ReplyDAOImpl;
 import com.studio7707.DTO.ReplyVO;
+
 @Service
 public class ReplyServiceImpl implements ReplyService {
 	
@@ -19,18 +20,22 @@ public class ReplyServiceImpl implements ReplyService {
 		int bno = vo.getBno();
 		String writer = vo.getWriter();
 		String content = vo.getContent();
-		
 		vo.setBno(bno);
 		vo.setWriter(writer);
 		vo.setContent(content);
-		
+		System.out.println("ReplyService"+vo);
+
 		replyDAO.writeReply(vo);
 	}
 
 	@Override
-	public List<ReplyVO> listAll(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return replyDAO.listAll(bno);
+	public List<ReplyVO> replyList(int bno) throws Exception {
+		System.out.println("들어는오나?");
+		return replyDAO.replyList(bno);
+	}
+	@Override
+	public int countReply( int bno) throws Exception{
+		return replyDAO.countReply(bno);
 	}
 
 	@Override

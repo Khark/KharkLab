@@ -51,7 +51,7 @@
 				url : "${pageContext.request.contextPath}/member/checkId",
 				data : user_Id, //JSON용
 					//{"userId" : $("#userId").val()},
-				success : function(data) {
+				success : function(data, status, xhr) {
 					if ($.trim(data) == 0) {
 						$("#checkID").text("사용 가능한 ID입니다.");
 						$("#checkID").css("color", "blue");

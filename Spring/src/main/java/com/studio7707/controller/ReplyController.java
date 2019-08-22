@@ -25,8 +25,8 @@ public class ReplyController {
 	@Inject
 	ReplyService replyService;
 	
-	@RequestMapping(value = "replyList", method = RequestMethod.GET)
-	public ModelAndView replyList(HttpServletRequest request) throws Exception{
+	/*@RequestMapping(value = "replyList", method = RequestMethod.GET)*/
+	/*public ModelAndView replyList(HttpServletRequest request) throws Exception{
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		List<ReplyVO> replyList = null;
 		replyList =(List<ReplyVO>) replyService.listAll(bno);
@@ -35,4 +35,4 @@ public class ReplyController {
 		mav.addObject("list", replyList);
 		return mav;
 	}
-}
+*/}

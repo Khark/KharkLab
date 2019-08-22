@@ -8,13 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.studio7707.DAO.BoardDAO;
 import com.studio7707.DTO.BoardVO;
+import com.studio7707.DTO.ReplyVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	BoardDAO boardDao;
-
+	
+	
 	@Override
 	public void create(BoardVO vo) throws Exception {
 		String title = vo.getTitle();
@@ -65,7 +67,13 @@ public class BoardServiceImpl implements BoardService {
 	public int count() throws Exception{
 		return boardDao.count();
 	}
-
+	@Override
+	public List<ReplyVO> replyList(int bno) throws Exception{
+		System.out.println("들어는오나?");
+		return boardDao.replyList(bno);
+		
+	}
 	
+
 
 }

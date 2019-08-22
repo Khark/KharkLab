@@ -47,12 +47,13 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active">
+				<a  href="/" class="nav-link">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" id="toBoard"
 					href="board/list?num=1">Board</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Info&Contact</a>
+				<li class="nav-item"><a class="nav-link" href="/Info">Info&Contact</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Skill</a></li>
 			</ul>

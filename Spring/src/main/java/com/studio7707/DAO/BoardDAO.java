@@ -3,6 +3,7 @@ package com.studio7707.DAO;
 import java.util.List;
 
 import com.studio7707.DTO.BoardVO;
+import com.studio7707.DTO.ReplyVO;
 
 public interface BoardDAO {
 
@@ -22,6 +23,7 @@ public interface BoardDAO {
 	
 	public void increaseViewcnt(int bno) throws Exception;
 	
+	public List<ReplyVO> replyList(int bno) throws Exception;
 
 }
 

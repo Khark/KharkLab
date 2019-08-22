@@ -1,14 +1,15 @@
 package com.studio7707.DTO;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ReplyVO {
-
+	
 	private int bno;
 	private int rno;
 	private String content;
 	private String writer;
 	private Date regdate;
+	
 	public int getBno() {
 		return bno;
 	}
