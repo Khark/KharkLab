@@ -10,24 +10,21 @@
 
 <script>
 	$(document).ready(function() {
-		
-		$.ajax({
-		
-			url : "../reply/list",
-			data : {bno : ${dto.bno}},
-			async : true,
-			method : "GET",
-			dataType :"json"
-					
-		})
-		.done(function(json){
-			console.log("success");
-		})
-		.fail(function(xhr, status){
-			console.log("상태" + status);
-		})
-		
-		
+
+		listReply();
+		function listReply() {
+			$.ajax({
+				url : "../reply/list?bno=${dto.bno}",
+				method : "GET",
+
+				success : function(result) {
+					console.log("ok");
+					$("#listReply").html(result);
+				}
+
+			});
+		}
+
 		$("#buttonReply").click(function() {
 			var JSON = {
 				"content" : $("#insertReply").val(),
@@ -36,19 +33,16 @@
 
 			}
 			console.log(JSON);
+
 			$.ajax({
 				type : "POST",
 				url : "${pageContext.request.contextPath}/reply/insertReply",
 				async : true,
 				data : JSON,
 				success : function(data, status, xhr) {
-					if (data == "success") {
 						$("#responeReply").text("작성완료");
 						$("#responeReply").css("color", "blue");
-
-				/* 		getReplyList(); */
-
-					}
+						listReply();
 				}
 
 			})
@@ -56,8 +50,6 @@
 		});
 
 	});
-
-
 </script>
 
 
@@ -65,7 +57,8 @@
 <body>
 	<div>
 		<form>${dto.bno}
-		<p>=============================== reply.jsp=============================== </p>
+			<p>===============================
+				reply.jsp===============================</p>
 			<p>댓글</p>
 			<input id="insertReply" name="insertReply" cols="100"> <input
 				id="writerReply" type="hidden" value="${member.userName}"> <input
@@ -75,8 +68,9 @@
 		</form>
 	</div>
 	<script>
+		
 	</script>
-	<div>
+	<div id="listReply">
 		<c:choose>
 			<c:when test="${replyCount eq '0'}">
 				<p>작성된댓글이없습니다.</p>
