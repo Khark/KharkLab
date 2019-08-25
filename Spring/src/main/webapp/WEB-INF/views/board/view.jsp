@@ -61,7 +61,7 @@ p.d {
 				document.view.submit();
 			}
 		});
-	
+
 		$("#writeReply").click(function() {
 			var JSON = {
 				"content" : $("#insertReply").val(),
@@ -75,16 +75,11 @@ p.d {
 				url : "${pageContext.request.contextPath}/board/insertReply",
 				async : true,
 				data : JSON,
-				/* 	dataType ="json" */
 				success : function(data, status, xhr) {
-					if ($data) {
-						$("#responeReply").text("작성완료");
-						$("#responeReply").css("color", "blue");
-					} else {
-						$("#responeReply").text("작성에 실패했습니다.");
-						$("#responeReply").css("color", "red");
 
-					}
+					$("#responeReply").text("작성완료");
+					$("#responeReply").css("color", "blue");
+
 				}
 
 			})
@@ -145,28 +140,25 @@ p.d {
 		</form>
 	</div>
 	<div>
-		<form name="writeReply" method="post"
+${dto.bno}		<%-- <form name="writeReply" method="post"
 			action="${path}/board/insertReply">
 			<p>댓글</p>
 			<input id="insertReply" name="insertReply" cols="100"> <input
 				id="writerReply" type="hidden" value="${member.userName} ">
 			<input id="idxBoard" type="hidden" value="${dto.bno} ">
 			<button type="button" id="writeReply">작성</button>
-			<div id="responeReply" name= "responeReply"></div>
-		</form>
+			<div id="responeReply" name="responeReply"></div>
+		</form> --%>
 	</div>
-	<c:choose>
-		<c:when test="${replyCount eq '0'}">
-			<p>작성된댓글이없습니다.</p>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="row" items="${list}">
-				<p>
-					<td>${row.writer}</td>
-					<td>${row.content}</td>
-				</p>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
+	<script></script>
+	<%@ include file="../reply/insert.jsp"%>
+	<%-- 	<%@ include file = "../reply/list.jsp"%> --%>
+	<c:import url="../reply/list">
+		<c:param name ="bno" value ="${dto.bno}"/>
+	</c:import>
+	<%-- <jsp:include page="../reply/list"  flush="false">
+		<jsp:param name ="bno" value="${dto.bno}"/>
+	</jsp:include> --%>
 </body>
+
 </html>

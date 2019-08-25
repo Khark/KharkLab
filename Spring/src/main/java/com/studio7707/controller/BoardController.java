@@ -63,24 +63,25 @@ public class BoardController {
 	 * ModelAndView(); mav.setViewName("board/list"); mav.addObject("list", list);
 	 * return mav; }
 	 */
+	
+	
 	@RequestMapping(value = "view", method = RequestMethod.GET)
-	public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception {
+	public ModelAndView view(@RequestParam int bno) throws Exception {
 		logger.info("BoardController_VIEW");
 		ModelAndView mav = new ModelAndView();
-		List<ReplyVO> list = null;
+		/*List<ReplyVO> list = null;
 		list = replyService.replyList(bno);
 		
 		int replycount;
-		replycount = replyService.countReply(bno);
+		replycount = replyService.countReply(bno);*/
 		mav.setViewName("board/view");
 		mav.addObject("dto", boardService.read(bno));
-		mav.addObject("replyCount", replycount);
-		mav.addObject("list", list);
+		/*mav.addObject("replyCount", replycount);
+		mav.addObject("list", list);*/
 
 		System.out.println("BoardMAV" + boardService.read(bno));
-		System.out.println("ReplyMAV" + list);
-		System.out.println("ReConMAV" + replycount);
-		
+		/*System.out.println("ReplyMAV" + list);
+		System.out.println("ReConMAV" + replycount);*/		
 		return mav;
 	}
 
@@ -91,11 +92,12 @@ public class BoardController {
 	public String write() {
 		return "board/write";
 	}
-	@RequestMapping(value ="insertReply", method = RequestMethod.POST)
+	// 게시판 - 댓글 분리중..
+	/*@RequestMapping(value ="insertReply", method = RequestMethod.POST)
 	public @ResponseBody void replyInsert(ReplyVO vo) throws Exception {
 		System.out.println("replyInsert"+ vo);
 		replyService.writeReply(vo);
-	}
+	}*/
 
 	/*
 	 * 입력 후 리스트로 가기 위한 컨트롤러

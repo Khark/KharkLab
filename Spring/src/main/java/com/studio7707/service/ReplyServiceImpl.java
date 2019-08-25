@@ -30,7 +30,6 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public List<ReplyVO> replyList(int bno) throws Exception {
-		System.out.println("들어는오나?");
 		return replyDAO.replyList(bno);
 	}
 	@Override
