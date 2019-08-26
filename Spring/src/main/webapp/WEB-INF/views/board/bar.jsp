@@ -5,8 +5,10 @@
 
 <html>
 <head>
+<title>Welcome to Khark Lab</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 </head>
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
@@ -46,10 +48,10 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="../">Home
+				<li class="nav-item active"><a class="nav-link" href="/">Home
 				</a></li>
 				<li class="nav-item"><a class="nav-link" id="toBoard"
-					href="board/list?num=1">Board</a></li>
+					href="../board/list?num=1">Board</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Info&Contact</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Skill</a></li>

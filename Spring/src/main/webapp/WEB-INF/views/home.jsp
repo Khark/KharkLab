@@ -6,21 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Welcome to Khark Lab</title>
+ <meta charset="utf-8">
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 </head>
-<body>
-	<jsp:include page="bar.jsp" flush="false" />
-
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-	<link
-		href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
-		rel="stylesheet"> -->
-
-
-
-	<style>
+<style>
 body {
 	background: #f8f8f8;
 	padding: 60px 0;
@@ -35,9 +26,9 @@ body {
 }
 </style>
 
-
-	<!-- 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
+<body>
+	<jsp:include page="bar.jsp" flush="false" />
+	
 	<script>
 		$(document).ready(function() {
 

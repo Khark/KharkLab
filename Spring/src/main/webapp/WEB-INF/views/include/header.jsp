@@ -9,7 +9,8 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png"><title>Insert title here</title>
 </head>
 
 <body>

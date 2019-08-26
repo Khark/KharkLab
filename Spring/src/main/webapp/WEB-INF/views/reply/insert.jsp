@@ -21,10 +21,8 @@
 					console.log("ok");
 					$("#listReply").html(result);
 				}
-
 			});
 		}
-
 		$("#buttonReply").click(function() {
 			var JSON = {
 				"content" : $("#insertReply").val(),
@@ -40,9 +38,9 @@
 				async : true,
 				data : JSON,
 				success : function(data, status, xhr) {
-						$("#responeReply").text("작성완료");
-						$("#responeReply").css("color", "blue");
-						listReply();
+					$("#responeReply").text("작성완료");
+					$("#responeReply").css("color", "blue");
+					listReply();
 				}
 
 			})
@@ -51,14 +49,11 @@
 
 	});
 </script>
-
-
 </head>
 <body>
 	<div>
-		<form>${dto.bno}
-			<p>===============================
-				reply.jsp===============================</p>
+		<form>
+
 			<p>댓글</p>
 			<input id="insertReply" name="insertReply" cols="100"> <input
 				id="writerReply" type="hidden" value="${member.userName}"> <input

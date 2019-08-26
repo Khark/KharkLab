@@ -7,9 +7,10 @@
 
 <html>
 <head>
-
+<title>Welcome to Khark Lab</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 <link
 	href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean"
 	rel="stylesheet">
@@ -89,7 +90,6 @@ p.d {
 	});
 </script>
 
-<title></title>
 
 
 </head>

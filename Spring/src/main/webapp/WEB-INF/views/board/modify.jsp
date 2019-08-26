@@ -4,6 +4,9 @@
 <html>
 <jsp:include page="session.jsp" flush="false" />
 <head>
+<title>Welcome to Khark Lab</title>
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -37,7 +40,6 @@
 	});
 </script>
 
-<title>Insert title here</title>
 </head>
 <body>
 	이곳은 수정을 하는곳이란다 얘

@@ -4,9 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Welcome to Khark Lab</title>
+ <meta charset="utf-8">
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 </head>
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">

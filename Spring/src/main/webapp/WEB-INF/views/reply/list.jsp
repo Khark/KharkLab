@@ -11,7 +11,7 @@
 <body>
 <div>
 		<form>${dto.bno}
-		<p>=============================== reply.jsp=============================== </p>
+		<p>ffffffff </p>
 			<p>댓글</p>
 			<input id="insertReply" name="insertReply" cols="100"> <input
 				id="writerReply" type="hidden" value="${member.userName}"> <input

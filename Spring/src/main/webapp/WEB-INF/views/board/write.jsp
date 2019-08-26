@@ -5,8 +5,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <head>
+<title>Welcome to Khark Lab</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+   <!-- ICON UPDATE!!! -->
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1320/PNG/64/-fire_86891.png">
 <jsp:include page="session.jsp" flush="false" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -37,7 +39,6 @@
 	});
 </script>
 
-<title>Insert title here</title>
 </head>
 <body>
 	<h2>게시글 작성</h2>
