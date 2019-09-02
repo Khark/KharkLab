@@ -31,23 +31,54 @@ public class HomeController {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(
-					"jdbc:mariadb://mariadb.c3tc2v9lue19.ap-northeast-2.rds.amazonaws.com:3306/mariaDB",
-					"admin",
-					"skzmajtls7403");
-			if(con != null) {
+					"jdbc:mariadb://mariadb.c3tc2v9lue19.ap-northeast-2.rds.amazonaws.com:3306/mariaDB", "admin",
+					"12345678");
+			if (con != null) {
 				System.out.println("접속성공");
-				}
-			}catch (ClassNotFoundException e) {
-				System.out.println("드라이버 로드 실패");
-			}catch(SQLException e) {
-				System.out.println("DB접속실패");
-				e.printStackTrace();
 			}
-				
-					
-		
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로드 실패");
+		} catch (SQLException e) {
+			System.out.println("DB접속실패");
+			e.printStackTrace();
+		}
 
-	return"home";
-}
+		return "home";
+	}
+	@RequestMapping(value="/1")
+	public String page1() {
+		System.out.println("1");
+		return "1";
+	}
+	@RequestMapping(value="/2")
+	public String page2() {
+		System.out.println("2");
+		return "2";
+	}
+	@RequestMapping(value="/3")
+	public String page3() {
+		System.out.println("3");
+
+		return "3";
+	}
+	@RequestMapping(value="/4")
+	public String page4() {
+		System.out.println("4");
+
+		return "4";
+	}
+	@RequestMapping(value="/5")
+	public String page5() {
+		System.out.println("5");
+
+		return "5";
+	}
+	@RequestMapping(value="/6")
+	public String page6() {
+		System.out.println("6");
+
+		return "6";
+	}
+	
 
 }
